@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavBar from './NavBar.js'
+
+import CategoryListContainer from './containers/categories/CategoryListContainer'
+import SingleCategoryContainer from './containers/categories/SingleCategoryContainer';
+import CategoryFormContainer from './containers/categories/CategoryFormContainer';
+import CategoryEditFormContainer from './containers/categories/CategoryEditFormContainer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <React.Fragment>
+          <NavBar />
+          <Switch>
+            <Route exact path='/categories' component={CategoryListContainer} />
+            <Route exact path='/categories/new' component={CategoryFormContainer} />
+            <Route exact path="/categories/edit/:id" render={(props) => {
+              const id = props.match.params.id;
+              return <CategoryEditFormContainer id={id} />
+            }}
+            />
+            <Route exact path="/categories/:id" render={(props) => {
+              const id = props.match.params.id;
+              return <SingleCategoryContainer id={id} />
+            }}
+            />
+          </Switch>
+        </React.Fragment>
+      </Router>
+
     );
   }
 }
