@@ -42,5 +42,4 @@ class JournalstEditFormContainer extends Component {
 
   }
 }
-
 export default JournalistEditFormContainer;

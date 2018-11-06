@@ -13,7 +13,7 @@ class JournalistFormContainer extends Component {
   componentDidMount(){
     const request = new Request();
     request.get("/api/categories").then((data) => {
-      this.setState({articles: data._embedded.articles})
+      this.setState({articles: data._embedded.categories})
     }).then(() => {
       request.get('/api/articles').then((data) => {
         this.setState({articles: data._embedded.articles})
