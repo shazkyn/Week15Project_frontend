@@ -1,53 +1,50 @@
 import React, {Component} from 'react';
-import Journalist from '../../components/journalist/Journalist.js';
-import JournalistDetails from '../../components/journalists/JournalistDetails.js';
+import Category from '../../components/categories/Category.js';
+import CategoryDetails from '../../components/categories/CategoryDetails.js';
 
 import Request from '../../helpers/request.js';
 
-class SingleJournalistContainer extends Component {
+class SingleCategoryContainer extends Component {
   constructor(props){
     super(props);
-    this.state = {journalist: null}
+    this.state = {category: null}
     this.handleDelete = this.handleDelete.bind(this)
     this.handleEdit= this.handleEdit.bind(this)
   }
 
   componentDidMount(){
     let request = new Request()
-    const url = '/api/journalists/' + this.props.id + '?projection=embedArticle';
+    const url = '/api/categories/' + this.props.id + '?projection=embedJournalist';
     request.get(url).then((data) => {
-      this.setState({journalist: data})
+      this.setState({category: data})
     })
   }
 
   handleDelete(id){
     const request = new Request();
-    const url = '/api/journalists/' + id;
+    const url = '/api/categories/' + id;
     request.delete(url).then(() => {
-      window.location = '/journalists'
+      window.location = '/categories'
     })
   }
 
   handleEdit(id){
-    window.location = '/journalists/edit/' + id
+    window.location = '/categories/edit/' + id
   }
 
 
   render(){
-    if(!this.state.journalist){
+    if(!this.state.category){
       return null;
     }
     return (
       <div className="component">
-       <Pirate journalist = {this.state.journalist} />
-       <PirateDetails journalist = {this.state.journalist} 
-       articles={this.state.journalist.articles} 
-       handleDelete = {this.handleDelete} 
-       handleEdit={this.handleEdit}/>
+       <Category category = {this.state.category} />
+       <CategoryDetails category = {this.state.category} Articles={this.state.category.articles} handleDelete = {this.handleDelete} handleEdit={this.handleEdit}/>
      </div>
     )
 
   }
 }
 
-export default SingleJournalistContainer;
+export default SingleCategoryContainer;

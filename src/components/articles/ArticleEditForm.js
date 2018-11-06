@@ -18,7 +18,7 @@ class ArticleEditForm extends Component {
     const article = {
         "name": this.state.name,
         "jounalist": this.state.jounalist,
-        "categories": [...this.state.raidOptions].filter((option) => {
+        "categories": [...this.state.categoryOptions].filter((option) => {
           return option.selected
         }).map((option) => {
           return option.value

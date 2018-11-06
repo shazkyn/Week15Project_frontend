@@ -6,11 +6,19 @@ import CategoryEditForm from '../../components/categories/CategoryEditForm'
 class CategoryEditFormContainer extends Component {
   constructor(props){
     super(props);
-    this.state = { name: null };
+    this.state = { category: null };
     this.handleCategoryEdit = this.handleCategoryEdit.bind(this);
   }
 
-  handlecategoryEdit(category){
+  componentDidMount() {
+    const request = new Request();
+    request.get("/api/categories/" + this.props.id + "?projection=embedCategory")
+      .then((category) => {
+        this.setState({ category: category })
+      });
+  }
+
+  handleCategoryEdit(category){
     const request = new Request();
     request.patch('/api/categories/' + this.props.id, category).then(() => {
       window.location = '/categories/' + this.props.id
@@ -18,11 +26,10 @@ class CategoryEditFormContainer extends Component {
   }
 
   render(){
-    if(!this.state.journalists || !this.state.category || !this.state.articles){
+    if (this.state.category === null) {
       return null;
     }
-    return <CategoryEditForm journalists = {this.state.journalists} category={this.state.category} raids={this.state.raids} handlePirateEdit= {this.handlePirateEdit} />
-
+    return <CategoryEditForm category={this.state.category} handleCategoryEdit={this.handleCategoryEdit} />
   }
 }
 

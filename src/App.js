@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar.js'
 
+import ArticleListContainer from './containers/articles/ArticleListContainer'
+
 import CategoryListContainer from './containers/categories/CategoryListContainer'
 import SingleCategoryContainer from './containers/categories/SingleCategoryContainer';
 import CategoryFormContainer from './containers/categories/CategoryFormContainer';
@@ -13,6 +15,7 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
+          <Route exact path='/articles' component={ArticleListContainer} />
           <Switch>
             <Route exact path='/categories' component={CategoryListContainer} />
             <Route exact path='/categories/new' component={CategoryFormContainer} />

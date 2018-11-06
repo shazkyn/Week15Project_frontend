@@ -14,7 +14,7 @@ const ArticleDetails = (props) => {
   if(!props.categories){
     return null;
   }
-  const raids = props.categories.map((category, index) => {
+  const categories = props.categories.map((category, index) => {
     return <li key = {index}>{category.location}</li>
   })
 

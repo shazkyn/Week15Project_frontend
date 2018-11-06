@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Category from '../../components/categories/Category.js';
 import CategoryDetails from '../../components/categories/CategoryDetails.js';
 
 import Request from '../../helpers/request.js';
@@ -14,9 +13,9 @@ class SingleCategoryContainer extends Component {
 
   componentDidMount(){
     let request = new Request()
-    const url = '/api/categories/' + this.props.id + '?projection=embedJournalist';
+    const url = '/api/categories/' + this.props.id + '?projection=embedCategory';
     request.get(url).then((data) => {
-      this.setState({category: data})
+      this.setState( {category: data} );
     })
   }
 
@@ -32,15 +31,11 @@ class SingleCategoryContainer extends Component {
     window.location = '/categories/edit/' + id
   }
 
-
   render(){
-    if(!this.state.category){
-      return null;
-    }
+   
     return (
       <div className="component">
-       <Category category = {this.state.category} />
-       <CategoryDetails category = {this.state.category} Articles={this.state.category.articles} handleDelete = {this.handleDelete} handleEdit={this.handleEdit}/>
+       <CategoryDetails category={this.state.category} handleDelete={this.handleDelete} handleEdit={this.handleEdit}/>
      </div>
     )
 

@@ -10,13 +10,13 @@ const CategoryDetails = (props) => {
     props.handleEdit(props.category.id)
   }
 
-  if(!props.name){
+  if (props.category === null) {
     return null;
   }
 
   return (
     <React.Fragment>
-    Category Name: {props.name}
+    Category Name: {props.category.name}
     <button onClick={onDelete}>Delete Category</button>
     <button onClick={onEdit}>Edit Category</button>
     </React.Fragment>

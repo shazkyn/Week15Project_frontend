@@ -1,27 +1,29 @@
 import React, {Component} from 'react';
-import JournalistList from '../../components/journalists/JournalistList.js';
+import CategoryList from '../../components/categories/CategoryList.js';
 
 import Request from '../../helpers/request.js';
 
-class JournalistListContainer extends Component {
+class CategoryListContainer extends Component {
   constructor(props){
     super(props);
-    this.state = {journalists: []}
+    this.state = {categories: []}
   }
 
   componentDidMount(){
     let request = new Request()
-    request.get('/api/journalists').then((data) => {
-      this.setState({journalist: data._embedded.journalists})
+    request.get('/api/categories').then((data) => {
+      this.setState({categories: data._embedded.categories})
     })
+    // fetch()
   }
-
 
   render(){
     return (
-     <JournalistList journalists = {this.state.journalists} />
+     <CategoryList categories={this.state.categories} />
     )
   }
 }
 
-export default JournalistListContainer;
+export default CategoryListContainer;
+
+
