@@ -11,7 +11,7 @@ class CategoryListContainer extends Component {
 
   componentDidMount(){
     let request = new Request()
-    request.get('http://localhost:8080/api/categories').then((data) => {
+    request.get('/api/categories').then((data) => {
       this.setState({categories: data._embedded.categories})
     })
     // fetch()
