@@ -9,7 +9,7 @@ const Journalist = (props) => {
 
   return (
     <React.Fragment>
-        <Link to = {"/api/journalists/" + props.journalist.id} className="name">
+        <Link to = {"/journalists/" + props.journalist.id} className="name">
           {props.journalist.name}
         </Link>
     </React.Fragment>

@@ -6,7 +6,6 @@ import CategoryForm from '../../components/categories/CategoryForm'
 class CategoryFormContainer extends Component {
   constructor(props){
     super(props);
-    this.state = {journalists: [], articles: []};
     this.handleCategoryPost = this.handleCategoryPost.bind(this);
   }
 

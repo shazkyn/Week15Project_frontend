@@ -6,25 +6,14 @@ import JournalistForm from '../../components/journalists/JournalistForm'
 class JournalistFormContainer extends Component {
   constructor(props){
     super(props);
-    this.state = {categories: [], articles: []};
     this.handleJournalistPost = this.handleJournalistPost.bind(this);
   }
 
-  componentDidMount(){
-    const request = new Request();
-    request.get("/api/articles").then((data) => {
-      this.setState({journalists: data._embedded.journalists})
-    }).then(() => {
-      request.get('/api/articles').then((data) => {
-        this.setState({articles: data._embedded.articles})
-      });
-    });
-  }
 
-  handleCategoryPost(category, articleId){
+  handleJournalistPost(journalist){
     const request = new Request();
-    request.post('/api/categories', category).then(() => {
-      window.location = '/category'
+    request.post('/api/journalists', journalist).then(() => {
+      window.location = '/journalists'
     })
 
     
@@ -32,14 +21,9 @@ class JournalistFormContainer extends Component {
 
   render(){
 
-    return <CategoryForm
-      journalists={this.state.journalists}
-      articles={this.state.articles}
-      handleCategoryPost={this.handleCategoryPost} 
-      
-      />
+    return <JournalistForm handleJournalistPost={this.handleJournalistPost}/>
 
   }
 }
 
-export default CategoryFormContainer;
+export default JournalistFormContainer;

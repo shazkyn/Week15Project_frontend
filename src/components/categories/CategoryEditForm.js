@@ -22,7 +22,8 @@ class CategoryEditForm extends Component {
     return (
     <div>
       <form onSubmit={this.handleSubmit}>
-        <input type="text" value = {this.state.name} name="name" onChange={e => this.setState({ name: e.target.value })}/>
+        <input type="text" value = {this.state.name} 
+        name="name" onChange={e => this.setState({ name: e.target.value })}/>
         <button type="submit">Save</button>
       </form>
     </div>

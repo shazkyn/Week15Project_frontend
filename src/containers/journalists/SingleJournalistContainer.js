@@ -1,50 +1,51 @@
 import React, {Component} from 'react';
-import Category from '../../components/categories/Category.js';
-import CategoryDetails from '../../components/categories/CategoryDetails.js';
+import Journalist from '../../components/journalists/Journalist.js';
+import JournalistDetails from '../../components/journalists/JournalistDetails.js';
 
 import Request from '../../helpers/request.js';
 
-class SingleCategoryContainer extends Component {
+class SingleJournalistContainer extends Component {
   constructor(props){
     super(props);
-    this.state = {category: null}
+    this.state = {journalist: null}
     this.handleDelete = this.handleDelete.bind(this)
     this.handleEdit= this.handleEdit.bind(this)
   }
 
   componentDidMount(){
     let request = new Request()
-    const url = '/api/categories/' + this.props.id + '?projection=embedJournalist';
+    const url = '/api/journalists/' + this.props.id + '?projection=embedJournalist';
     request.get(url).then((data) => {
-      this.setState({category: data})
+      this.setState({journalist: data})
     })
   }
 
   handleDelete(id){
     const request = new Request();
-    const url = '/api/categories/' + id;
+    const url = '/api/journalists/' + id;
     request.delete(url).then(() => {
-      window.location = '/categories'
+      window.location = '/journalists'
     })
   }
 
   handleEdit(id){
-    window.location = '/categories/edit/' + id
+    window.location = '/journalists/edit/' + id
   }
 
 
   render(){
-    if(!this.state.category){
+    if(!this.state.journalist){
       return null;
     }
     return (
+    
       <div className="component">
-       <Category category = {this.state.category} />
-       <CategoryDetails category = {this.state.category} Articles={this.state.category.articles} handleDelete = {this.handleDelete} handleEdit={this.handleEdit}/>
-     </div>
+        <JournalistDetails journalist={this.state.journalist} handleDelete={this.handleDelete} handleEdit={this.handleEdit} />
+      </div>
     )
+    
 
   }
 }
 
-export default SingleCategoryContainer;
+export default SingleJournalistContainer;

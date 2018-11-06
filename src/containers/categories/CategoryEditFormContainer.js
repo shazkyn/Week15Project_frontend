@@ -29,7 +29,8 @@ class CategoryEditFormContainer extends Component {
     if (this.state.category === null) {
       return null;
     }
-    return <CategoryEditForm category={this.state.category} handleCategoryEdit={this.handleCategoryEdit} />
+    return <CategoryEditForm category={this.state.category}
+     handleCategoryEdit={this.handleCategoryEdit} />
   }
 }
 
