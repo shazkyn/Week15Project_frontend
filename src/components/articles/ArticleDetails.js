@@ -13,10 +13,12 @@ const ArticleDetails = (props) => {
   if(!props.article === null){
     return null;
   }
+  // Article Title: { props.article.title }
+
+  console.log(props)
 
   return (
     <React.Fragment>
-    Article Title: {props.article.title}
     <button onClick={onDelete}>Delete Article</button>
     <button onClick={onEdit}>Edit Article</button>
     </React.Fragment>

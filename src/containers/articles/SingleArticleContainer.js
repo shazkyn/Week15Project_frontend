@@ -14,6 +14,7 @@ class SingleArticleContainer extends Component {
   componentDidMount(){
     let request = new Request()
     const url = '/api/articles/' + this.props.id + '?projection=embedArticle';
+    console.log(url)
     request.get(url).then((data) => {
       this.setState({article: data})
     })
@@ -33,6 +34,7 @@ class SingleArticleContainer extends Component {
 
 
   render(){
+    console.log(this.state)
  
     return (
       <div className="component">
