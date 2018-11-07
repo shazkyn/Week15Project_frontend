@@ -9,6 +9,7 @@ const Article = (props) => {
 
   return (
     <React.Fragment>
+       <div>Date: {props.article.date}</div>
         <Link to = {"/articles/" + props.article.id} 
         className="title">
           {props.article.title} 
