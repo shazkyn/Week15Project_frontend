@@ -6,15 +6,15 @@ import ArticleEditForm from '../../components/articles/ArticleEditForm'
 class ArticleEditFormContainer extends Component {
   constructor(props){
     super(props);
-    this.state = {article: null};
+    this.state = {articles: null};
     this.handleArticleEdit = this.handleArticleEdit.bind(this);
   }
 
   componentDidMount(){
     const request = new Request();
     request.get("/api/articles/" + this.props.id + "?projection=embedArticle")
-      .then((article) => {
-        this.setState({ article: article })
+      .then((articles) => {
+        this.setState({ articles: articles })
       });
   }
 
@@ -26,12 +26,11 @@ class ArticleEditFormContainer extends Component {
   }
 
   render(){
-    if(!this.state.article === null){
+    if(this.state.articles === null){
       return null;
-    }
-    return <ArticleEditForm article={this.state.article}
-      handleArticleEdit={this.handleArticleEdit} />
-
+    } 
+      return <ArticleEditForm article={this.state.articles}
+        handleArticleEdit={this.handleArticleEdit} />
   }
 }
 

@@ -23,7 +23,7 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
-          <Route exact path='/articles' component={ArticleListContainer} />
+          {/* <Route exact path='/articles' component={ArticleListContainer} /> */}
           <Switch>
             <Route exact path='/categories' component={CategoryListContainer} />
             <Route exact path='/categories/new' component={CategoryFormContainer} />
@@ -53,7 +53,7 @@ class App extends Component {
 
             <Route exact path='/articles' component={ArticleListContainer} />
             <Route exact path='/articlers/new' component={ArticleFormContainer} />
-            <Route exact path="/articles/edit/:id" render={(props) => {
+            <Route exact path="/articles/:id/edit" render={(props) => {
               const id = props.match.params.id;
               return <ArticleEditFormContainer id={id} />
             }}

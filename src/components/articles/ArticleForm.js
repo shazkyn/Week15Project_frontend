@@ -5,7 +5,7 @@ const ArticleForm = (props) => {
   function handleSubmit(event){
     event.preventDefault();
     const article = {
-        "title": event.target.tit.value,
+        "title": event.target.title.value,
       }
     props.handleArticlePost(article)
 

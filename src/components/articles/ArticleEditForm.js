@@ -3,11 +3,9 @@ import React, {Component} from 'react';
 class ArticleEditForm extends Component {
   constructor(props){
     super(props);
-    console.log(props)
     this.state = {
       title: props.article.title
     }
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 

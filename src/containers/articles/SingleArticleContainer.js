@@ -29,7 +29,7 @@ class SingleArticleContainer extends Component {
   }
 
   handleEdit(id){
-    window.location = '/articles/edit/' + id
+    window.location = '/articles/' + id + '/edit'
   }
 
 
