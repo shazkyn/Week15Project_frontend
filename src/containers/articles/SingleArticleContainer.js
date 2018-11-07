@@ -13,10 +13,18 @@ class SingleArticleContainer extends Component {
 
   componentDidMount(){
     let request = new Request()
-    const url = '/api/articles/' + this.props.id + '?projection=embedArticle';
-    console.log(url)
-    request.get(url).then((data) => {
-      this.setState({article: data})
+    request.get('/api/articles/' + this.props.id + '?projection=embedArticle').then((data) => {
+      const article = {
+        title: data.title,
+        date: data.date,
+        id: data.id,
+        content: data.content,
+        journalistId: data._embedded.journalist.id,
+        journalistName: data._embedded.journalist.name,
+        categoryId: data._embedded.category.id,
+        categoryName: data._embedded.category.name,
+      };
+      this.setState({article: article})
     })
   }
 
@@ -34,16 +42,13 @@ class SingleArticleContainer extends Component {
 
 
   render(){
-    console.log(this.state)
- 
-    return (
+     return (
       <div className="component">
         <ArticleDetails article={this.state.article} 
         handleDelete={this.handleDelete} 
         handleEdit={this.handleEdit} />
       </div>
     )
-
   }
 }
 

@@ -8,8 +8,8 @@ const ArticleForm = (props) => {
         "title": event.target.title.value,
       }
     props.handleArticlePost(article)
-
   }
+  
     return (
        <div>
         <form onSubmit={handleSubmit}>

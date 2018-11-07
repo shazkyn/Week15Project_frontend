@@ -4,7 +4,7 @@ class ArticleEditForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      title: props.article.title
+      title: props.title
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -12,11 +12,10 @@ class ArticleEditForm extends Component {
  handleSubmit(event){
     event.preventDefault();
     const article = {
-        "title": this.state.title,
-      }
+      title: this.state.title
+    };
     this.props.handleArticleEdit(article)
   }
-
 
 render(){
   return (

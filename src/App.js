@@ -52,7 +52,7 @@ class App extends Component {
             />
 
             <Route exact path='/articles' component={ArticleListContainer} />
-            <Route exact path='/articlers/new' component={ArticleFormContainer} />
+            <Route exact path='/articles/new' component={ArticleFormContainer} />
             <Route exact path="/articles/:id/edit" render={(props) => {
               const id = props.match.params.id;
               return <ArticleEditFormContainer id={id} />

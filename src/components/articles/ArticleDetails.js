@@ -10,15 +10,18 @@ const ArticleDetails = (props) => {
     props.handleEdit(props.article.id)
   }
 
-  if(!props.article === null){
+  if(props.article === null){
     return null;
   }
-  // Article Title: { props.article.title }
-
-  console.log(props)
 
   return (
     <React.Fragment>
+    <div>Title: {props.article.title}</div>
+      <div>Date: {props.article.date}</div>
+      <div>Content: {props.article.content}</div>
+      <div>Category: {props.article.categoryName}</div>
+      <div>Journalist: {props.article.journalistName}</div>
+
     <button onClick={onDelete}>Delete Article</button>
     <button onClick={onEdit}>Edit Article</button>
     </React.Fragment>

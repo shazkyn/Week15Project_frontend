@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Journalist from '../../components/journalists/Journalist.js';
 import JournalistDetails from '../../components/journalists/JournalistDetails.js';
 
 import Request from '../../helpers/request.js';
@@ -32,7 +31,6 @@ class SingleJournalistContainer extends Component {
     window.location = '/journalists/edit/' + id
   }
 
-
   render(){
     if(!this.state.journalist){
       return null;
@@ -43,8 +41,6 @@ class SingleJournalistContainer extends Component {
         <JournalistDetails journalist={this.state.journalist} handleDelete={this.handleDelete} handleEdit={this.handleEdit} />
       </div>
     )
-    
-
   }
 }
 

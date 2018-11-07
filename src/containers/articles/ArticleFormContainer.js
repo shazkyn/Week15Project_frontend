@@ -11,11 +11,10 @@ class ArticleFormContainer extends Component {
 
   handleArticlePost(article, categoryId){
     const request = new Request();
+    console.log(article)
     request.post('/api/articles', article).then(() => {
       window.location = '/articles'
     })
-
-    
   }
 
   render(){
