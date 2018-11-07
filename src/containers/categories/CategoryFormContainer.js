@@ -17,7 +17,8 @@ class CategoryFormContainer extends Component {
   }
 
   render(){
-    return <CategoryForm handleCategoryPost={this.handleCategoryPost} />
+    return <CategoryForm 
+    handleCategoryPost={this.handleCategoryPost} />
   }
 }
 

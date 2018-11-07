@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const NavBar = (props) => {
     return (
         <header>
-            <img src="/images/SGNNnewsBanner.jpg" alt="Logo" />
 
             <ul>
                 <li className="navLink">

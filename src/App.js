@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar.js'
 
 import ArticleListContainer from './containers/articles/ArticleListContainer'
+import SingleArticleContainer from './containers/articles/SingleArticleContainer';
+import ArticleFormContainer from './containers/articles/ArticleFormContainer';
+import ArticleEditFormContainer from './containers/articles/ArticleEditFormContainer';
 
 import JournalistListContainer from './containers/journalists/JournalistListContainer'
 import SingleJournalistContainer from './containers/journalists/SingleJournalistContainer';
@@ -45,6 +48,19 @@ class App extends Component {
             <Route exact path="/journalists/:id" render={(props) => {
               const id = props.match.params.id;
               return <SingleJournalistContainer id={id} />
+            }}
+            />
+
+            <Route exact path='/articles' component={ArticleListContainer} />
+            <Route exact path='/articlers/new' component={ArticleFormContainer} />
+            <Route exact path="/articles/edit/:id" render={(props) => {
+              const id = props.match.params.id;
+              return <ArticleEditFormContainer id={id} />
+            }}
+            />
+            <Route exact path="/articles/:id" render={(props) => {
+              const id = props.match.params.id;
+              return <SingleArticleContainer id={id} />
             }}
             />
           </Switch>

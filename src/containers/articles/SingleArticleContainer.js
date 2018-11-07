@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Article from '../../components/articles/Article.js';
 import ArticleDetails from '../../components/articles/ArticleDetails.js';
 
 import Request from '../../helpers/request.js';
@@ -14,7 +13,7 @@ class SingleArticleContainer extends Component {
 
   componentDidMount(){
     let request = new Request()
-    const url = '/api/articles/' + this.props.id + '?projection=embedJournalist';
+    const url = '/api/articles/' + this.props.id + '?projection=embedArticle';
     request.get(url).then((data) => {
       this.setState({article: data})
     })
@@ -34,17 +33,13 @@ class SingleArticleContainer extends Component {
 
 
   render(){
-    if(!this.state.article){
-      return null;
-    }
+ 
     return (
       <div className="component">
-       <Article article = {this.state.article} />
-       <articleDetails article = {this.state.article} 
-       category={this.state.article.categories} 
-       handleDelete = {this.handleDelete} 
-       handleEdit={this.handleEdit}/>
-     </div>
+        <ArticleDetails article={this.state.article} 
+        handleDelete={this.handleDelete} 
+        handleEdit={this.handleEdit} />
+      </div>
     )
 
   }

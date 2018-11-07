@@ -16,7 +16,6 @@ class ArticleListContainer extends Component {
     })
   }
 
-
   render(){
     return (
      <ArticleList articles={this.state.articles} />

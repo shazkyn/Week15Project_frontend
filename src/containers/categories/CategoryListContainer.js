@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+ import React, {Component} from 'react';
 import CategoryList from '../../components/categories/CategoryList.js';
 
 import Request from '../../helpers/request.js';
@@ -14,7 +14,6 @@ class CategoryListContainer extends Component {
     request.get('/api/categories').then((data) => {
       this.setState({categories: data._embedded.categories})
     })
-    // fetch()
   }
 
   render(){

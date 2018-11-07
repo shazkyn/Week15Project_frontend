@@ -35,7 +35,9 @@ class SingleCategoryContainer extends Component {
    
     return (
       <div className="component">
-       <CategoryDetails category={this.state.category} handleDelete={this.handleDelete} handleEdit={this.handleEdit}/>
+       <CategoryDetails category={this.state.category} 
+       handleDelete={this.handleDelete} 
+       handleEdit={this.handleEdit}/>
      </div>
     )
 

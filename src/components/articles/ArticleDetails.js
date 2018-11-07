@@ -1,5 +1,4 @@
 import React  from 'react';
-import {Link} from 'react-router-dom';
 
 const ArticleDetails = (props) => {
 
@@ -11,19 +10,13 @@ const ArticleDetails = (props) => {
     props.handleEdit(props.article.id)
   }
 
-  if(!props.categories){
+  if(!props.article === null){
     return null;
   }
-  const categories = props.categories.map((category, index) => {
-    return <li key = {index}>{category.location}</li>
-  })
 
   return (
     <React.Fragment>
-    Categories:
-    <ul>
-      {categories}
-    </ul>
+    Article Title: {props.article.title}
     <button onClick={onDelete}>Delete Article</button>
     <button onClick={onEdit}>Edit Article</button>
     </React.Fragment>

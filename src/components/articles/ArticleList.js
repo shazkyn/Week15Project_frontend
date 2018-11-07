@@ -1,11 +1,12 @@
 import React from 'react';
 import Article from './Article.js';
+import { Link } from 'react-router-dom';
 
 
 const ArticleList = (props) => {
-	const articles = props.articles.map((article) => {
+	const articles = props.articles.map((article, index) => {
 		 	return (
-				<li key={article.id} className="component-item">
+				<li key={index} className="component-item">
 					<div className = "component">
 				<Article article={article} />
 			</div>
@@ -14,10 +15,12 @@ const ArticleList = (props) => {
 		})
 
 	return (
-		<ul className="component-list">
-	    {articles}
-	  </ul>
-
+		<React.Fragment>
+			<ul className="component-list">
+				{articles}
+			</ul>
+			<Link to="/articles/new">New Article</Link>
+		</React.Fragment>
 	)
 }
  export default ArticleList;

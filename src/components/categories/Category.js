@@ -9,7 +9,8 @@ const Category = (props) => {
 
   return (
     <React.Fragment>
-        <Link to = {"/categories/" + props.category.id} className="name">
+        <Link to = {"/categories/" + props.category.id} 
+        className="name">
           {props.category.name}
         </Link>
     </React.Fragment>
