@@ -14,17 +14,7 @@ class SingleArticleContainer extends Component {
   componentDidMount(){
     let request = new Request()
     request.get('/api/articles/' + this.props.id + '?projection=embedArticle').then((data) => {
-      const article = {
-        title: data.title,
-        date: data.date,
-        id: data.id,
-        content: data.content,
-        journalistId: data._embedded.journalist.id,
-        journalistName: data._embedded.journalist.name,
-        categoryId: data._embedded.category.id,
-        categoryName: data._embedded.category.name,
-      };
-      this.setState({article: article})
+      this.setState({article: data})
     })
   }
 

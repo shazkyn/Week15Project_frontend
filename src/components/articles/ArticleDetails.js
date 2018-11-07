@@ -19,8 +19,8 @@ const ArticleDetails = (props) => {
     <div>Title: {props.article.title}</div>
       <div>Date: {props.article.date}</div>
       <div>Content: {props.article.content}</div>
-      <div>Category: {props.article.categoryName}</div>
-      <div>Journalist: {props.article.journalistName}</div>
+      <div>Category: {props.article.category.name}</div>
+      <div>Journalist: {props.article.journalist.name}</div>
 
     <button onClick={onDelete}>Delete Article</button>
     <button onClick={onEdit}>Edit Article</button>

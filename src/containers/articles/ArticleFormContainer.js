@@ -9,7 +9,7 @@ class ArticleFormContainer extends Component {
     this.handleArticlePost = this.handleArticlePost.bind(this);
   }
 
-  handleArticlePost(article, categoryId){
+  handleArticlePost(article){
     const request = new Request();
     console.log(article)
     request.post('/api/articles', article).then(() => {
